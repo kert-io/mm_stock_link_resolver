@@ -1,0 +1,7 @@
+Writing PID to tmp/pids/thin.pid
+/Users/kertheinecke/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/thin-1.6.4/lib/thin/backends/base.rb:103: warning: epoll is not supported on this platform
+Using rack adapter
+Sinatra environment: development
+Thin web server (v1.6.4 codename Gob Bluth)
+Maximum connections set to 1024
+Listening on 127.0.0.1:4001, CTRL+C to stop

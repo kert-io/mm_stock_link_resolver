@@ -1,0 +1,30 @@
+<td class="stock_data" rowspan="" valign="top" style="font-size:13px; width:px;">
+  <table width="100%" class="inner" border="0" cellpadding="0" cellspacing="0" valign="top" style="border-collapse:separate; font-size:13px; margin-bottom: 0px;">
+    <tbody>
+      <tr>
+        <td valign="top" style="min-width:100%; font-size:16px; line-height:22px;  font-weight:600;  font-family:'proxima-nova', 'Avenir Next', 'Segoe UI', 'Calibri', 'Helvetica Neue', Helvetica, Arial, sans-serif; color:#333;">
+          <h4 style="margin: 3px 0 0;color:#333;"><%= @data['name'] %> (<%=@data['symbol'] %>)</h4>
+          <p style="margin:10px 0 4px;color:#333; line-height: 1.1;">
+            <span style="font-size:35px;"><%= @data['price'].to_f.round(2) %></span>
+            
+            <% if @data['change'].to_f < 0 %>
+            <img src="<%=RESOLVER_APP_STATIC_ROOT%>down_r.gif"/>
+            <span style="color:#c00;font-size:20px;font-weight:400;">
+            <% else %>
+            <img src="<%=RESOLVER_APP_STATIC_ROOT%>up_g.gif"/>
+            <span style="color:#080;font-size:20px;font-weight:400;">
+            <% end %>
+              <%= @data['change'].to_f.round(2) %> (<%=@data['chg_percent'].to_f.round(2) %>%)
+            
+            </span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td class="webfont-sans" colspan="2" valign="top" style="min-width:100%; font-size:13px; line-height:17px;  font-family:'Segoe UI', 'Helvetica Neue', Helvetica, 'Calibri', Arial, sans-serif;color:#999;">
+          <%= @time.strftime('%A, %b. %d, %Y %l:%M%P') %>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</td>

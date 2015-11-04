@@ -1,3 +1,5 @@
 /tmp
 /log
 start_d.sh
+start_p.sh
+restart_p.sh

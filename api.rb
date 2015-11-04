@@ -25,8 +25,8 @@ class ResolverAPI < Sinatra::Base
   end
 
   get '/stock_resolver' do
-    user = @params[:user]
-    @url = @params[:url]
+    user = params[:user]
+    @url = params[:url].nil? ? params[:text] : params[:url] 
     @symbol = parse_url(@url)
 
     @data = look_up_stock(@symbol)

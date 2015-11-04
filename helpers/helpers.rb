@@ -13,3 +13,9 @@ def look_up_stock(symbol)
 	raw = JSON.parse(resp)
 	raw['list']['resources'][0]['resource']['fields']
 end
+
+def get_symbols(q)
+	raw = `curl http://d.yimg.com/aq/autoc?query=#{q} -G --data-urlencode "region=us" --data-urlencode "lang=en-US" --data-urlencode "callback=YAHOO.util.ScriptNodeDataSource.callbacks"`
+	raw_results = JSON.parse(raw.gsub("YAHOO.util.ScriptNodeDataSource.callbacks(",'').gsub(");",''))
+	raw_results["ResultSet"]["Result"]
+end

@@ -39,6 +39,23 @@ class ResolverAPI < Sinatra::Base
     html = erb :_card, :layout => :card_wrapper
     json :body => html, :subject => "#{@data['name']} Stock Quote"
   end
+
+  get '/typeahead' do
+    q = params[:text]
+    symbols = get_symbols(q)
+    formatted_list = []
+
+    symbols.each do |s|
+      next unless s["typeDisp"] == "Equity"
+      @s = s
+      row = {}
+      row[:title] = erb :_symbol_row, :layout => false
+      row[:text] = "http://finance.yahoo.com/q?s=#{@s["symbol"]}&ql=0"
+      formatted_list << row
+    end
+
+    json formatted_list
+  end
 end
 
    

@@ -1,0 +1,11 @@
+<div class="word_header" style="background: #EEEEEE; margin: -10px; padding: 10px;">
+	<h1><%=@header[:name] %></h1>
+	<% @header[:definitions].each do |d| %>
+		<p class = "definition">
+			<span class= "pos" style= "font-size:13px; line-height:17px;  font-family:'Segoe UI', 'Helvetica Neue', Helvetica, 'Calibri', Arial, sans-serif; color:#999;">
+				<%= d[:pos] %>
+			</span>&nbsp;&nbsp;-&nbsp;
+			<%= d[:def] %>
+		</p>
+	<% end %>
+</div>
